@@ -13,18 +13,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class BaseClass {
-
-public static XSSFSheet getdata() throws IOException {
-
-    File file = new File("./TestData/TestDataSheet.xlsx");
-    FileInputStream fis = new FileInputStream(file);
-    XSSFWorkbook wb=new XSSFWorkbook(fis);
-    XSSFSheet Sheet = wb.getSheet("FlightFinder");
-    return Sheet;
-
-}
-
     public static WebDriver driver;
+
     public static void setup(){
         System.setProperty("webdriver.chrome.driver","C://Users//Kota.Reddy//IdeaProjects//SeleniumLaernings2//src//main//Drivers//chromedriver.exe");
         driver = new ChromeDriver();
@@ -46,6 +36,23 @@ public static XSSFSheet getdata() throws IOException {
         File filepath = new File(filelocation);
                FileUtils.copyFile(img,filepath);
     }
+    public static XSSFSheet getdata() throws IOException {
 
+        File file = new File("./TestData/TestDataSheet.xlsx");
+        FileInputStream fis = new FileInputStream(file);
+        XSSFWorkbook wb=new XSSFWorkbook(fis);
+        XSSFSheet Sheet = wb.getSheet("FlightFinder");
+        return Sheet;
+
+    }
+    public static XSSFSheet getRegistartiondata() throws IOException {
+
+        File file = new File("./TestData/TestDataSheet.xlsx");
+        FileInputStream fis = new FileInputStream(file);
+        XSSFWorkbook wb=new XSSFWorkbook(fis);
+        XSSFSheet Sheet = wb.getSheet("Registration");
+        return Sheet;
+
+    }
 
 }

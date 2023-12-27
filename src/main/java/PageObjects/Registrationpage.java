@@ -2,7 +2,8 @@ package PageObjects;
 
 import baseclass.BaseClass;
 import org.openqa.selenium.By;
-import org.testng.Assert;
+
+import java.io.IOException;
 
 public class Registrationpage extends BaseClass {
     public static String Email ="email";
@@ -11,10 +12,12 @@ public class Registrationpage extends BaseClass {
     public static String SubmitButton = "submit";
     public static String RegConfirmation = "(//font)[5]";
 
-    public static void Enterdetails(String user,String pass, String Confirm){
+    public static void Enterdetails() throws IOException {
+        String user = getRegistartiondata().getRow(1).getCell(0).getStringCellValue();
+        String password = getRegistartiondata().getRow(1).getCell(1).getStringCellValue();
         driver.findElement(By.id(Email)).sendKeys(user);
-        driver.findElement(By.name(Password)).sendKeys(pass);
-        driver.findElement(By.name(CPassword)).sendKeys(Confirm);
+        driver.findElement(By.name(Password)).sendKeys(password);
+        driver.findElement(By.name(CPassword)).sendKeys(password);
     }
 public static void ClickSubmitBotton(){
 
